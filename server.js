@@ -2,8 +2,52 @@ const express = require("express");
 require("dotenv").config();
 const app = express();
 
+// middleware for HTTP GET method
 app.get("/", (req, res, next) => {
-  res.json({ message: "Did you GET IT!" });
+  res.json({
+    message: "Using GET /",
+    metadata: {
+      host: req.hostname,
+      port: process.env.port,
+      method: req.method,
+    },
+  });
+});
+
+// middleware for HTTP POST method
+app.post("/", (req, res, next) => {
+  res.json({
+    message: "Using POST /",
+    metadata: {
+      host: req.hostname,
+      port: process.env.port,
+      method: req.method,
+    },
+  });
+});
+
+// middleware for HTTP PATCH method
+app.patch("/", (req, res, next) => {
+  res.json({
+    message: "Using PATCH /",
+    metadata: {
+      host: req.hostname,
+      port: process.env.port,
+      method: req.method,
+    },
+  });
+});
+
+// middleware for HTTP DELETE method
+app.delete("/", (req, res, next) => {
+  res.json({
+    message: "Using DELETE /",
+    metadata: {
+      host: req.hostname,
+      port: process.env.port,
+      method: req.method,
+    },
+  });
 });
 
 // middleware modules for error handling
@@ -11,8 +55,6 @@ app.use((req, res, next) => {
   const error = Error("NOT FOUND!");
   error.status = 404;
   next(error);
-
-  // res.json({ name: "Jeff", course: "WDV353" });
 });
 
 // middleware to send error nicely
