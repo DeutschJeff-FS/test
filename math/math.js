@@ -16,6 +16,6 @@ const quotient = (g, h) => {
 
 const squareRoot = (x) => Math.sqrt(x);
 
-const maxNum = (j, k, l, n) => Math.max(j, k, l, n);
+const maxNum = (j, k, l) => Math.max(j, k, l);
 
 module.exports = { sum, difference, product, quotient, squareRoot, maxNum };

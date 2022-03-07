@@ -1,11 +1,4 @@
-const {
-  sum,
-  difference,
-  product,
-  quotient,
-  squareRoot,
-  maxNum,
-} = require("./math");
+const { sum, difference, product, quotient, squareRoot, maxNum } = require("./math");
 
 describe("Testing the math module", () => {
   // Test for addition
